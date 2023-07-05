@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        128: "30rem",
+      },
       colors: {
         "color-primary": "#6441a5",
         "color-secondary": "#2a0845",
@@ -20,10 +23,15 @@ module.exports = {
           "0%": { transform: "translateY(3rem)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        fade: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "move-up": "move-up 1s ease-in 0.5s",
         "move-up-later": "move-up 1s ease-in 1.25s",
+        fade: "fade 1s ease-in-out 1.75s",
       },
     },
   },
