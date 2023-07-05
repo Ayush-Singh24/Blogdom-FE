@@ -32,6 +32,7 @@ module.exports = {
         "move-up": "move-up 1s ease-in 0.5s",
         "move-up-later": "move-up 1s ease-in 1.25s",
         fade: "fade 1s ease-in-out 1.75s",
+        "fade-quick": "fade 0.5s ease-in-out",
       },
     },
   },
