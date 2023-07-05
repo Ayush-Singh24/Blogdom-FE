@@ -9,7 +9,7 @@ export default function Home() {
         </h2>
         <div className="flex gap-14 justify-center animate-move-up-later opacity-0 fill-mode-forwards">
           <Button text={"Login"} route={"/login"} />
-          <Button text={"Sign Up"} route={"/"} />
+          <Button text={"Sign Up"} route={"/signup"} />
         </div>
       </div>
       <div className="hidden relative xl:block flex-grow h-full animate-fade fill-mode-forwards">

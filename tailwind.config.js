@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        short: { raw: "(max-height: 670px)" },
+      },
       spacing: {
         128: "30rem",
       },

@@ -1,3 +1,5 @@
+import Form from "@/components/Form";
+
 export default function SignUp() {
-  return <></>;
+  return <Form page="Sign Up" />;
 }
