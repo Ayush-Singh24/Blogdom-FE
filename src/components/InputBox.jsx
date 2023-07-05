@@ -6,7 +6,9 @@ export default function InputBox({ credential, type }) {
       </label>
       <input
         type={type}
-        className="border-2 border-purple-200 rounded-xl p-3 focus:border-color-secondary"
+        className="border-2 border-purple-200 rounded-xl p-3 ouline 
+        focus:invalid:ouline-2 invalid:outline-red-600 bg-slate-100"
+        required
         placeholder={
           credential === "Confirm password"
             ? `Re-enter password`
