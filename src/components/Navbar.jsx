@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 export default function Navbar() {
   const router = useRouter();
   return (
-    <nav className="fixed bottom-0 w-full bg-white flex z-50">
+    <nav className="fixed bottom-0 w-full bg-white flex z-50 p-1">
       <button
         className="w-1/3 flex justify-center"
         onClick={() => router.push("/allblogs")}

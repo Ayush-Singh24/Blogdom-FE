@@ -19,6 +19,7 @@ module.exports = {
         "color-primary-light": "#772ce8",
         "color-error": "#FF9494",
         "color-success": "#4BB543",
+        "color-card-container": "#b5a7c7",
       },
       fontFamily: {
         sans: ["Montserrat"],

@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
+import SearchBox from "@/components/SearchBox";
 import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/router";
 
@@ -18,7 +19,9 @@ export default function AllBlogs() {
   }
   return (
     <>
-      <div className="m-5 p-5 bg-white opacity-60 rounded-2xl">
+      <SearchBox />
+      <div className="m-5 p-5 bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll">
+        <Card />
         <Card />
       </div>
       <Navbar />
