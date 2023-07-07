@@ -1,8 +1,21 @@
 import Button from "@/components/Button";
+import Loader from "@/components/Loader";
+import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
+
+  const isAuth = useAuth();
+
+  if (isAuth === null) {
+    return <Loader />;
+  }
+
+  if (isAuth) {
+    router.push("/allblogs");
+    return <Loader />;
+  }
 
   return (
     <main className=" h-screen flex items-center justify-center xl:justify-start max-w-[1400px] mx-auto">
