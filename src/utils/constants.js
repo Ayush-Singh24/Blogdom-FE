@@ -1,6 +1,7 @@
 export const ApiRoutes = {
-  UserSignUp: "/user/signup",
-  UserLogin: "/user/login",
+  UserSignUp: "/auth/signup",
+  UserLogin: "/auth/login",
+  VerifyToken: "/",
 };
 
 export const ResponseStatus = {
