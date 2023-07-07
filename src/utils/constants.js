@@ -2,6 +2,7 @@ export const ApiRoutes = {
   UserSignUp: "/auth/signup",
   UserLogin: "/auth/login",
   VerifyToken: "/",
+  AllBlogs: "/blog/all",
 };
 
 export const ResponseStatus = {

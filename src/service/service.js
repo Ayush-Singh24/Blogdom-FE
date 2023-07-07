@@ -42,4 +42,7 @@ export class Service {
   static async verifyToken() {
     return await makeGetRequest(ApiRoutes.VerifyToken);
   }
+  static async allBlogs() {
+    return await makeGetRequest(ApiRoutes.AllBlogs);
+  }
 }
