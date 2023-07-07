@@ -1,6 +1,9 @@
 import Button from "@/components/Button";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <main className=" h-screen flex items-center justify-center xl:justify-start max-w-[1400px] mx-auto">
       <div className="flex flex-col gap-24">
@@ -8,8 +11,8 @@ export default function Home() {
           Welcome to Blogdom!
         </h2>
         <div className="flex gap-14 justify-center animate-move-up-later opacity-0 fill-mode-forwards">
-          <Button text={"Login"} route={"/login"} />
-          <Button text={"Sign Up"} route={"/signup"} />
+          <Button text={"Login"} onClick={() => router.push("/login")} />
+          <Button text={"Sign Up"} onClick={() => router.push("/signup")} />
         </div>
       </div>
       <div className="hidden relative xl:block flex-grow h-full animate-fade opacity-0 fill-mode-forwards">
