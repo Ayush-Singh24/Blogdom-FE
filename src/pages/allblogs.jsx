@@ -15,5 +15,10 @@ export default function AllBlogs() {
     router.push("/login");
     return <Loader />;
   }
-  return <Navbar />;
+  return (
+    <>
+      <div className="m-8 bg-white opacity-60 rounded-2xl">hellow</div>
+      <Navbar />
+    </>
+  );
 }
