@@ -23,7 +23,7 @@ export default function Navbar() {
         className="w-1/3 flex justify-center"
         onClick={() => router.push("/allblogs")}
       >
-        <img src="/icons/edit.svg" alt="edit" className="h-14" />
+        <img src="/icons/profile.svg" alt="profile" className="h-14" />
       </button>
     </nav>
   );
