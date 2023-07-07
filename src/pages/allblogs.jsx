@@ -1,3 +1,4 @@
+import Card from "@/components/Card";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import { useAuth } from "@/hooks/useAuth";
@@ -17,7 +18,9 @@ export default function AllBlogs() {
   }
   return (
     <>
-      <div className="m-8 bg-white opacity-60 rounded-2xl">hellow</div>
+      <div className="m-5 p-5 bg-white opacity-60 rounded-2xl">
+        <Card />
+      </div>
       <Navbar />
     </>
   );
