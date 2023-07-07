@@ -20,7 +20,12 @@ export default function AllBlogs() {
   return (
     <>
       <SearchBox />
-      <div className="m-5 p-5 bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll">
+      <div className="m-5 p-5 h-screen bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll scroll-style">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         <Card />
         <Card />
       </div>
