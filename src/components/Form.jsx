@@ -4,10 +4,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Service } from "@/service/service";
-import { ResponseStatus } from "@/utils/constants";
+import { AlertStatus, ResponseStatus } from "@/utils/constants";
+import { useDispatch } from "react-redux";
+import { openAlert } from "@/redux/reducers/alert";
 
 export default function Form({ page }) {
   const router = useRouter();
+
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +31,14 @@ export default function Form({ page }) {
       }
       const response = await Service.login({ username, password });
       if (response.status === ResponseStatus.Ok) {
+        dispatch(
+          openAlert({ status: AlertStatus.Success, message: response.message })
+        );
         router.push("/");
+      } else {
+        dispatch(
+          openAlert({ status: AlertStatus.Error, message: response.message })
+        );
       }
     } else {
       if (!username || !email || !password || password !== confirmPassword) {
