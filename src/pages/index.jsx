@@ -20,9 +20,14 @@ export default function Home() {
   return (
     <main className=" h-screen flex items-center justify-center xl:justify-start max-w-[1400px] mx-auto">
       <div className="flex flex-col gap-24">
-        <h2 className="text-8xl text-center text-white animate-move-up opacity-0 fill-mode-forwards xl:text-left">
-          Welcome to Blogdom!
-        </h2>
+        <div className="flex flex-col gap-5 justify-center items-center">
+          <h2 className="text-8xl text-center text-white animate-move-up opacity-0 fill-mode-forwards xl:text-left">
+            Welcome to Blogdom!
+          </h2>
+          <span className="text-3xl text-center text-white animate-move-up opacity-0 fill-mode-forwards xl:text-left">
+            Kingdom of Blogs
+          </span>
+        </div>
         <div className="flex gap-14 justify-center animate-move-up-later opacity-0 fill-mode-forwards">
           <Button text={"Login"} onClick={() => router.push("/login")} />
           <Button text={"Sign Up"} onClick={() => router.push("/signup")} />

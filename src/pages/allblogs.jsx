@@ -18,7 +18,7 @@ export default function AllBlogs() {
     return <Loader />;
   }
   return (
-    <>
+    <div className="relative h-screen overflow-y-hidden">
       <SearchBox />
       <div className="m-5 p-5 h-screen bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll scroll-style">
         <Card />
@@ -28,8 +28,12 @@ export default function AllBlogs() {
         <Card />
         <Card />
         <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
       <Navbar />
-    </>
+    </div>
   );
 }

@@ -6,8 +6,6 @@ html {
   font-size: 62.5%;
 }
 
-.scroll-style {
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
+.scroll-style::-webkit-scrollbar {
+  width: 0px;
 }
