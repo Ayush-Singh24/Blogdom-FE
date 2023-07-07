@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="bg-gradient-to-r from-color-secondary to-color-primary relative">
+      <body className="bg-gradient-to-r from-color-secondary to-color-primary relative min-h-screen">
         <Main />
         <NextScript />
       </body>

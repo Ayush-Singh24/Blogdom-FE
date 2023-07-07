@@ -7,6 +7,7 @@ import { Service } from "@/service/service";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
 import { useDispatch } from "react-redux";
 import { openAlert } from "@/redux/reducers/alert";
+import Loader from "./Loader";
 
 export default function Form({ page }) {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function Form({ page }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // useEffect(() => {
   //   console.log({ username, password, email, confirmPassword });
@@ -26,33 +28,53 @@ export default function Form({ page }) {
     event.preventDefault();
     if (page === "Login") {
       if (!username || !password) {
-        alert("Enter valid username and password");
+        dispatch(
+          openAlert({
+            status: AlertStatus.Error,
+            message: "Enter valid username and password",
+          })
+        );
         return;
       }
+      setIsLoading(true);
       const response = await Service.login({ username, password });
       if (response.status === ResponseStatus.Ok) {
         dispatch(
           openAlert({ status: AlertStatus.Success, message: response.message })
         );
-        router.push("/");
+        router.push("/allblogs");
       } else {
+        setIsLoading(false);
         dispatch(
           openAlert({ status: AlertStatus.Error, message: response.message })
         );
       }
     } else {
       if (!username || !email || !password || password !== confirmPassword) {
-        alert("Enter valid credentials");
+        dispatch(
+          openAlert({
+            status: AlertStatus.Error,
+            message: "Enter valid credentials",
+          })
+        );
         return;
       }
-
+      setIsLoading(true);
       const response = await Service.signUp({ username, email, password });
       if (response.status === ResponseStatus.Created) {
-        router.push("/");
+        dispatch(
+          openAlert({ status: AlertStatus.Success, message: response.message })
+        );
+        router.push("/login");
+      } else {
+        setIsLoading(false);
+        dispatch(
+          openAlert({ status: AlertStatus.Error, message: response.message })
+        );
       }
     }
   };
-
+  if (isLoading) return <Loader />;
   return (
     <main className="flex flex-col gap-10 justify-center items-center h-screen  text-4xl short:text-2xl short:gap-7">
       <form
