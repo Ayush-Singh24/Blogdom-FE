@@ -45,4 +45,7 @@ export class Service {
   static async allBlogs() {
     return await makeGetRequest(ApiRoutes.AllBlogs);
   }
+  static async getBlog(url) {
+    return await makeGetRequest(ApiRoutes.Blog + url);
+  }
 }

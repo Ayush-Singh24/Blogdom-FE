@@ -45,6 +45,7 @@ export default function AllBlogs() {
             return (
               <Card
                 key={blog.fileId}
+                id={blog.fileId}
                 title={blog.title}
                 author={blog.authorName}
               />

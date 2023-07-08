@@ -3,6 +3,7 @@ export const ApiRoutes = {
   UserLogin: "/auth/login",
   VerifyToken: "/",
   AllBlogs: "/blog/all",
+  Blog: "/blog",
 };
 
 export const ResponseStatus = {
