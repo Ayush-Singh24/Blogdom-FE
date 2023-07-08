@@ -15,6 +15,7 @@ export default function AllBlogs() {
   const isAuth = useAuth();
   const dispatch = useDispatch();
   const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     Service.allBlogs().then((response) => {
@@ -25,10 +26,11 @@ export default function AllBlogs() {
           openAlert({ status: AlertStatus.Error, message: response.message })
         );
       }
+      setIsLoading(false);
     });
   }, []);
 
-  if (isAuth === null) {
+  if (isAuth === null || isLoading) {
     return <Loader />;
   }
 
