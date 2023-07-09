@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Button({ text, type, onClick }) {
   return (
     <button

@@ -1,5 +1,6 @@
 import { ApiRoutes } from "@/utils/constants";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
+
 async function makePostRequest(url, data) {
   const response = await fetch(`${BACKEND_URL}${url}`, {
     method: "POST",
@@ -47,5 +48,8 @@ export class Service {
   }
   static async getBlog(url) {
     return await makeGetRequest(ApiRoutes.Blog + url);
+  }
+  static async postBlog(data) {
+    return await makePostRequest(ApiRoutes.PostBlog, data);
   }
 }

@@ -4,6 +4,7 @@ export const ApiRoutes = {
   VerifyToken: "/",
   AllBlogs: "/blog/all",
   Blog: "/blog",
+  PostBlog: "/blog/saveblog",
 };
 
 export const ResponseStatus = {
