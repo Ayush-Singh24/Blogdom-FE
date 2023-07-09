@@ -39,9 +39,9 @@ export default function AllBlogs() {
     return <Loader />;
   }
   return (
-    <div className="relative overflow-y-hidden">
+    <div className="relative flex flex-col overflow-y-hidden">
       <SearchBox />
-      <div className="m-5 p-5 h-screen bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll scroll-style">
+      <div className="m-5 p-5 bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll scroll-style">
         {blogs &&
           blogs.map((blog) => {
             return (
@@ -53,6 +53,11 @@ export default function AllBlogs() {
               />
             );
           })}
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
       <Navbar />
     </div>
