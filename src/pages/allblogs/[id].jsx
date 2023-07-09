@@ -49,7 +49,9 @@ export default function Details() {
           <h1 className="text-5xl">{blogData.title}</h1>
           <span className="self-end text-2xl">{blogData.authorName}</span>
         </div>
-        <p className="p-5 text-3xl">{blogData.blogContent}</p>
+        <p className="p-5 text-3xl whitespace-pre-wrap">
+          {blogData.blogContent}
+        </p>
       </section>
       <div className="flex justify-center ">
         <Link href="/allblogs" className="hover:scale-105">

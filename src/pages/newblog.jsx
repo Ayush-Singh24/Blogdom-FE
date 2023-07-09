@@ -22,6 +22,7 @@ export default function NewBlog() {
     const data = { title: blogTitle, blogContent: blogBody };
     setIsLoading(true);
     const response = await Service.postBlog(data);
+    console.log(response);
     if (response.status === ResponseStatus.Created) {
       dispatch(
         openAlert({ status: AlertStatus.Success, message: response.message })
