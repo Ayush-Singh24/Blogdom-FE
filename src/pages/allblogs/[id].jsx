@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import Loader from "@/components/Loader";
 import { useAuth } from "@/hooks/useAuth";
 import { openAlert } from "@/redux/reducers/alert";
@@ -42,12 +43,7 @@ export default function Details() {
     <>
       <section className="m-5 bg-color-card-container rounded-3xl">
         <div className="p-5 bg">
-          <button
-            className="bg-white rounded-full p-2"
-            onClick={() => router.push("/allblogs")}
-          >
-            <img src="/icons/arrow-left.svg" alt="back" />
-          </button>
+          <BackButton />
         </div>
         <div className="flex flex-col mb-4 p-5 bg-slate-300 shadow-black shadow-md rounded-t-3xl rounded-b-3xl transition-all hover:bg-color-primary hover:text-white">
           <h1 className="text-5xl">{blogData.title}</h1>
