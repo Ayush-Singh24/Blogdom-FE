@@ -52,4 +52,7 @@ export class Service {
   static async postBlog(data) {
     return await makePostRequest(ApiRoutes.PostBlog, data);
   }
+  static async getUserBlogs() {
+    return await makeGetRequest(ApiRoutes.UserBlogs);
+  }
 }

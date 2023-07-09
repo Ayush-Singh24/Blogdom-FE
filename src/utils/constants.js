@@ -5,6 +5,7 @@ export const ApiRoutes = {
   AllBlogs: "/blog/all",
   Blog: "/blog",
   PostBlog: "/blog/saveblog",
+  UserBlogs: "/blog/username",
 };
 
 export const ResponseStatus = {

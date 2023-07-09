@@ -1,4 +1,5 @@
 import BackButton from "@/components/BackButton";
+import Blog from "@/components/Blog";
 import Loader from "@/components/Loader";
 import { useAuth } from "@/hooks/useAuth";
 import { openAlert } from "@/redux/reducers/alert";
@@ -40,26 +41,11 @@ export default function Details() {
   }
 
   return (
-    <>
-      <section className="m-5 bg-color-card-container rounded-3xl">
-        <div className="p-5 bg">
-          <BackButton />
-        </div>
-        <div className="flex flex-col mb-4 p-5 bg-slate-300 shadow-black shadow-md rounded-t-3xl rounded-b-3xl transition-all hover:bg-color-primary hover:text-white">
-          <h1 className="text-5xl">{blogData.title}</h1>
-          <span className="self-end text-2xl">{blogData.authorName}</span>
-        </div>
-        <p className="p-5 text-3xl whitespace-pre-wrap">
-          {blogData.blogContent}
-        </p>
-      </section>
-      <div className="flex justify-center ">
-        <Link href="/allblogs" className="hover:scale-105">
-          <span className="text-white py-4 text-4xl underline underline-offset-4 cursor-pointer  transition-all">
-            Go back
-          </span>
-        </Link>
-      </div>
-    </>
+    <Blog
+      back="/allblogs"
+      title={blogData.title}
+      authorName={blogData.authorName}
+      blogContent={blogData.blogContent}
+    />
   );
 }
