@@ -54,21 +54,6 @@ export default function AllBlogs() {
               />
             );
           })}
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
       <GoToTop />
       <Navbar />

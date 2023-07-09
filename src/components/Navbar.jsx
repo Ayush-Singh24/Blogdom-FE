@@ -15,7 +15,7 @@ export default function Navbar() {
           <img
             src="/icons/plus-circle.svg"
             alt="new"
-            className="h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[63%] bg-white rounded-full"
+            className="h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[63%] bg-white rounded-full  hover:invert active:invert"
           />
         </div>
       </button>

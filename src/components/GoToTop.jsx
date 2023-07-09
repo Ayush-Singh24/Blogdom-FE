@@ -33,7 +33,11 @@ export default function GoToTop() {
       className="fixed left-[3.2rem] bottom-[6rem] bg-color-secondary rounded-full p-1 transition-all z-50 border-white border-2"
       onClick={jumpToTop}
     >
-      <img src="icons/arrow-up.svg" alt="up" className="invert p-4" />
+      <img
+        src="icons/arrow-up.svg"
+        alt="up"
+        className="invert p-4 transition-all hover:-translate-y-2"
+      />
     </button>
   );
 }
