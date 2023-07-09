@@ -8,7 +8,7 @@ export default function Blog({ back, title, authorName, blogContent }) {
         <div className="p-5 bg">
           <BackButton route={back} />
         </div>
-        <div className="flex flex-col mb-4 p-5 bg-slate-300 shadow-black shadow-md rounded-t-3xl rounded-b-3xl transition-all hover:bg-color-primary hover:text-white">
+        <div className="flex flex-col gap-10 mb-4 p-5 bg-slate-300 shadow-black shadow-md rounded-t-3xl rounded-b-3xl transition-all hover:bg-color-primary hover:text-white">
           <h1 className="text-5xl">{title}</h1>
           <span className="self-end text-2xl">{authorName}</span>
         </div>
