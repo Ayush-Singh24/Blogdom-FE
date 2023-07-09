@@ -7,7 +7,11 @@ export default function BackButton() {
       className="bg-white rounded-full p-2"
       onClick={() => router.push("/allblogs")}
     >
-      <img src="/icons/arrow-left.svg" alt="back" />
+      <img
+        src="/icons/arrow-left.svg"
+        alt="back"
+        className="transition-all hover:-translate-x-2"
+      />
     </button>
   );
 }
