@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import GoToTop from "@/components/GoToTop";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import SearchBox from "@/components/SearchBox";
@@ -41,7 +42,7 @@ export default function AllBlogs() {
   return (
     <div className="relative flex flex-col overflow-y-hidden">
       <SearchBox />
-      <div className="m-5 p-5 bg-color-card-container rounded-2xl flex flex-col gap-10 overflow-y-scroll scroll-style">
+      <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
         {blogs &&
           blogs.map((blog) => {
             return (
@@ -58,7 +59,18 @@ export default function AllBlogs() {
         <Card />
         <Card />
         <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
+      <GoToTop />
       <Navbar />
     </div>
   );
