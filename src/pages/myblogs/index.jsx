@@ -11,17 +11,19 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-export default function AllBlogs() {
-  const router = useRouter();
-  const isAuth = useAuth();
-  const dispatch = useDispatch();
+export default function MyBlogs() {
   const [blogs, setBlogs] = useState([]);
+  const [author, setAuthor] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const isAuth = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
-    Service.allBlogs().then((response) => {
+    Service.getUserBlogs().then((response) => {
       if (response.status === ResponseStatus.Ok) {
-        setBlogs(response.allBlogs);
+        setBlogs(response.userBlogs);
+        setAuthor(response.username);
       } else {
         dispatch(
           openAlert({ status: AlertStatus.Error, message: response.message })
@@ -39,25 +41,28 @@ export default function AllBlogs() {
     router.push("/login");
     return <Loader />;
   }
+
   return (
-    <div className="relative flex flex-col overflow-y-hidden">
-      <SearchBox />
-      <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
-        {blogs &&
-          blogs.map((blog) => {
-            return (
-              <Card
-                key={blog.fileId}
-                id={blog.fileId}
-                title={blog.title}
-                author={blog.authorName}
-                back={"allblogs"}
-              />
-            );
-          })}
+    <>
+      <div className="relative flex flex-col overflow-y-hidden">
+        <SearchBox />
+        <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
+          <h2 className="text-4xl">{`${author}'s Blogs:`}</h2>
+          {blogs &&
+            blogs.map((blog) => {
+              return (
+                <Card
+                  key={blog.fileId}
+                  title={blog.title}
+                  id={blog.fileId}
+                  back={"myblogs"}
+                />
+              );
+            })}
+        </div>
+        <GoToTop />
+        <Navbar />
       </div>
-      <GoToTop />
-      <Navbar />
-    </div>
+    </>
   );
 }
