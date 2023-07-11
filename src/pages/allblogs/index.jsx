@@ -17,6 +17,7 @@ export default function AllBlogs() {
   const dispatch = useDispatch();
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     Service.allBlogs().then((response) => {
@@ -41,11 +42,13 @@ export default function AllBlogs() {
   }
   return (
     <div className="relative flex flex-col overflow-y-hidden">
-      <SearchBox />
+      <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
       <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
         {blogs &&
           blogs.map((blog) => {
-            return (
+            const regexp = searchInput.toLowerCase();
+            const match = blog.title.toLowerCase().search(regexp);
+            return !searchInput || match !== -1 ? (
               <Card
                 key={blog.fileId}
                 id={blog.fileId}
@@ -53,6 +56,8 @@ export default function AllBlogs() {
                 author={blog.authorName}
                 back={"allblogs"}
               />
+            ) : (
+              <></>
             );
           })}
       </div>
