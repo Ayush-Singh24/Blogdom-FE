@@ -49,7 +49,7 @@ export default function NewBlog() {
         className="m-5 p-5 gap-5 bg-color-card-container rounded-3xl w-full"
         onSubmit={handleSubmit}
       >
-        <BackButton />
+        <BackButton route="/allblogs" />
         <div className="p-5 flex flex-col gap-5">
           <label className="text-3xl">Enter Blog Title:</label>
           <input
