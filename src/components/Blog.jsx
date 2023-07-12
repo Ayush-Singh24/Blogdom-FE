@@ -3,7 +3,7 @@ import BackButton from "./BackButton";
 
 export default function Blog({ back, title, authorName, blogContent }) {
   return (
-    <div className="max-w-[1400px] mx-auto">
+    <div className="max-w-[1520px] mx-auto">
       <section className="m-5 bg-color-card-container rounded-3xl">
         <div className="p-5 bg">
           <BackButton route={back} />

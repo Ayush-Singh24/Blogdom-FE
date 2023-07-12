@@ -44,7 +44,7 @@ export default function NewBlog() {
   }
 
   return (
-    <div className="flex items-center justify-stretch h-screen max-w-[1400px] mx-auto">
+    <div className="flex items-center justify-stretch h-screen max-w-[1520px] mx-auto">
       <form
         className="m-5 p-5 gap-5 bg-color-card-container rounded-3xl w-full"
         onSubmit={handleSubmit}

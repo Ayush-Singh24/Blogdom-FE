@@ -41,7 +41,7 @@ export default function AllBlogs() {
     return <Loader />;
   }
   return (
-    <div className="relative flex flex-col overflow-y-hidden max-w-[1400px] mx-auto">
+    <div className="relative flex flex-col overflow-y-hidden max-w-[1520px] mx-auto">
       <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
       <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
         {blogs &&
