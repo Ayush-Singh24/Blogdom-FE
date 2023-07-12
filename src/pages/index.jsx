@@ -21,6 +21,11 @@ export default function Home() {
     <main className=" h-screen flex items-center justify-center xl:justify-start max-w-[1400px] mx-auto">
       <div className="flex flex-col gap-24">
         <div className="flex flex-col gap-5 justify-center items-center">
+          <img
+            src="/images/blogdom_icon.png"
+            alt="logo"
+            className="animate-move-up fill-mode-forwards opacity-0"
+          />
           <h2 className="text-8xl text-center text-white animate-move-up opacity-0 fill-mode-forwards xl:text-left">
             Welcome to Blogdom!
           </h2>
