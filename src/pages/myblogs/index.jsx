@@ -45,7 +45,7 @@ export default function MyBlogs() {
 
   return (
     <>
-      <div className="relative flex flex-col overflow-y-hidden">
+      <div className="relative flex flex-col overflow-y-hidden max-w-[1400px] mx-auto">
         <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
         <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
           <h2 className="text-4xl">{`${author}'s Blogs:`}</h2>

@@ -12,7 +12,7 @@ export default function Document() {
         />
         <title>Blogdom</title>
       </Head>
-      <body className="bg-gradient-to-r from-color-secondary to-color-primary relative">
+      <body className="bg-gradient-to-r from-color-secondary to-color-primary relative max-w-full">
         <Main />
         <NextScript />
       </body>

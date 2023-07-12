@@ -76,7 +76,7 @@ export default function Form({ page }) {
   };
   if (isLoading) return <Loader />;
   return (
-    <main className="flex flex-col gap-10 justify-center items-center h-screen  text-4xl short:text-2xl short:gap-7">
+    <main className="flex flex-col gap-10 justify-center items-center h-screen  text-4xl short:text-2xl short:gap-7 max-w-[1400px] mx-auto">
       <form
         className="flex flex-col gap-16 bg-white rounded-3xl p-10 shadow-black shadow-lg opacity-0 animate-fade-quick fill-mode-forwards md:w-3/4 short:gap-10"
         onSubmit={handleSubmit}
