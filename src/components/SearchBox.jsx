@@ -2,19 +2,34 @@ import Link from "next/link";
 
 export default function SearchBox({ searchInput, setSearchInput }) {
   return (
-    <div className="flex gap-5 bg-color-card-container justify-center items-center p-2">
+    <div className="flex gap-5 bg-color-card-container justify-center items-center py-2 px-4">
       <input
         type="text"
         placeholder="Search"
         name="blog-search"
         value={searchInput}
         onChange={(event) => setSearchInput(event.target.value.trimStart())}
-        className="rounded-full p-4 w-[80%] text-2xl"
+        className="rounded-full p-4 w-[80%] text-2xl lg:w-1/2 lg:mr-auto"
       />
-      <nav className="hidden lg:flex lg:gap-5 lg:p-5 lg:text-2xl">
-        <Link href="/allblogs">Home</Link>
-        <Link href="/newblog">New Blog</Link>
-        <Link href="/myblogs">My Blogs</Link>
+      <nav className="hidden lg:flex lg:gap-10 lg:p-5 lg:text-2xl lg:font-semibold lg:justify-end text-color-secondary">
+        <Link
+          href="/allblogs"
+          className="relative before:content-[''] before:h-1  before:absolute before:top-full before:left-0 before:w-0 before:transition-all before:bg-color-primary-light hover:before:w-full"
+        >
+          Home
+        </Link>
+        <Link
+          href="/newblog"
+          className="relative  before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 before:transition-all before:bg-color-primary-light hover:before:w-full"
+        >
+          New Blog
+        </Link>
+        <Link
+          href="/myblogs"
+          className="relative  before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 before:transition-all before:bg-color-primary-light hover:before:w-full"
+        >
+          My Blogs
+        </Link>
       </nav>
       {/* <label htmlFor="blog-search">
         <img
