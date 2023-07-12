@@ -6,7 +6,7 @@ export default function SearchBox({ searchInput, setSearchInput }) {
       <img
         src="/images/blogdom_icon.png"
         alt="logo"
-        className="h-20 hidden sm:block"
+        className="h-20 hidden sm:block transition-all hover:rotate-6 hover:-translate-y-1"
       />
       <input
         type="text"
