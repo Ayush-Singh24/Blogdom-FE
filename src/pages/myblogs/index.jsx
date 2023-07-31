@@ -21,17 +21,29 @@ export default function MyBlogs() {
   const router = useRouter();
 
   useEffect(() => {
-    Service.getUserBlogs().then((response) => {
-      if (response.status === ResponseStatus.Ok) {
-        setBlogs(response.userBlogs);
-        setAuthor(response.username);
-      } else {
-        dispatch(
-          openAlert({ status: AlertStatus.Error, message: response.message })
-        );
-      }
-      setIsLoading(false);
-    });
+    const controller = new AbortController();
+    const signal = controller.signal;
+    Service.getUserBlogs(signal)
+      .then((response) => {
+        if (response.status === ResponseStatus.Ok) {
+          setBlogs(response.userBlogs);
+          setAuthor(response.username);
+        } else {
+          dispatch(
+            openAlert({ status: AlertStatus.Error, message: response.message })
+          );
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.message === "AbortError") {
+          console.log("Request canceled");
+        } else {
+          openAlert({ status: AlertStatus.Error, message: err.message });
+        }
+      });
+
+    return () => controller.abort();
   }, []);
 
   if (isAuth === null || isLoading) {
@@ -47,7 +59,7 @@ export default function MyBlogs() {
     <>
       <div className="relative flex flex-col overflow-y-hidden max-w-[1520px] mx-auto">
         <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
-        <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
+        <div className="flex flex-col gap-10 p-5 m-5 mb-36 bg-color-card-container rounded-2xl">
           <h2 className="text-4xl">{`${author}'s Blogs:`}</h2>
           {blogs &&
             blogs.map((blog) => {

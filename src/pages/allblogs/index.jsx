@@ -20,7 +20,9 @@ export default function AllBlogs() {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    Service.allBlogs().then((response) => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    Service.allBlogs(signal).then((response) => {
       if (response.status === ResponseStatus.Ok) {
         setBlogs(response.allBlogs);
       } else {
@@ -43,7 +45,7 @@ export default function AllBlogs() {
   return (
     <div className="relative flex flex-col overflow-y-hidden max-w-[1520px] mx-auto">
       <SearchBox searchInput={searchInput} setSearchInput={setSearchInput} />
-      <div className="m-5 p-5 mb-36 bg-color-card-container rounded-2xl flex flex-col gap-10">
+      <div className="flex flex-col gap-10 p-5 m-5 mb-36 bg-color-card-container rounded-2xl">
         {blogs &&
           blogs.map((blog) => {
             const regexp = searchInput.toLowerCase();

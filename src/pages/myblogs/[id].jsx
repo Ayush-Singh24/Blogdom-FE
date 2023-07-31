@@ -17,16 +17,30 @@ export default function myBlogPage() {
   const isAuth = useAuth();
 
   useEffect(() => {
-    Service.getBlog(`/${id}`).then((response) => {
-      if (response.status === ResponseStatus.Ok) {
-        setBlogData(response);
-      } else {
-        dispatch(
-          openAlert({ status: AlertStatus.Error, message: response.message })
-        );
-      }
-      setIsLoading(false);
-    });
+    const controller = new AbortController();
+    const signal = controller.signal;
+    Service.getBlog(`/${id}`, signal)
+      .then((response) => {
+        if (response.status === ResponseStatus.Ok) {
+          setBlogData(response);
+        } else {
+          dispatch(
+            openAlert({ status: AlertStatus.Error, message: response.message })
+          );
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.message === "AbortError") {
+          console.log("Request canceled");
+        } else {
+          openAlert({ status: AlertStatus.Error, message: err.message });
+        }
+      });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   if (isAuth === null || isLoading) {

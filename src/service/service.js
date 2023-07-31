@@ -1,15 +1,19 @@
 import { ApiRoutes } from "@/utils/constants";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
 
-async function makePostRequest(url, data) {
-  const response = await fetch(`${BACKEND_URL}${url}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+async function makePostRequest(url, data, signal) {
+  const response = await fetch(
+    `${BACKEND_URL}${url}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      credentials: "include",
     },
-    body: JSON.stringify(data),
-    credentials: "include",
-  });
+    { signal }
+  );
   const json = await response.json();
   return {
     status: response.status,
@@ -17,14 +21,18 @@ async function makePostRequest(url, data) {
   };
 }
 
-async function makeGetRequest(url) {
-  const response = await fetch(BACKEND_URL + url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
+async function makeGetRequest(url, signal) {
+  const response = await fetch(
+    BACKEND_URL + url,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     },
-    credentials: "include",
-  });
+    { signal }
+  );
 
   const json = await response.json();
   return {
@@ -34,25 +42,25 @@ async function makeGetRequest(url) {
 }
 
 export class Service {
-  static async signUp(data) {
-    return await makePostRequest(ApiRoutes.UserSignUp, data);
+  static async signUp(data, signal) {
+    return await makePostRequest(ApiRoutes.UserSignUp, data, signal);
   }
-  static async login(data) {
-    return await makePostRequest(ApiRoutes.UserLogin, data);
+  static async login(data, signal) {
+    return await makePostRequest(ApiRoutes.UserLogin, data, signal);
   }
-  static async verifyToken() {
-    return await makeGetRequest(ApiRoutes.VerifyToken);
+  static async verifyToken(signal) {
+    return await makeGetRequest(ApiRoutes.VerifyToken, signal);
   }
-  static async allBlogs() {
-    return await makeGetRequest(ApiRoutes.AllBlogs);
+  static async allBlogs(signal) {
+    return await makeGetRequest(ApiRoutes.AllBlogs, signal);
   }
-  static async getBlog(url) {
+  static async getBlog(url, signal) {
     return await makeGetRequest(ApiRoutes.Blog + url);
   }
-  static async postBlog(data) {
-    return await makePostRequest(ApiRoutes.PostBlog, data);
+  static async postBlog(data, signal) {
+    return await makePostRequest(ApiRoutes.PostBlog, data, signal);
   }
-  static async getUserBlogs() {
-    return await makeGetRequest(ApiRoutes.UserBlogs);
+  static async getUserBlogs(signal) {
+    return await makeGetRequest(ApiRoutes.UserBlogs, signal);
   }
 }
