@@ -48,6 +48,9 @@ export class Service {
   static async login(data, signal) {
     return await makePostRequest(ApiRoutes.UserLogin, data, signal);
   }
+  static async logout() {
+    return await makePostRequest(ApiRoutes.UserLogout);
+  }
   static async verifyToken(signal) {
     return await makeGetRequest(ApiRoutes.VerifyToken, signal);
   }
