@@ -36,7 +36,7 @@ export default function GoToTop() {
       <img
         src="icons/arrow-up.svg"
         alt="up"
-        className="invert p-4 transition-all hover:-translate-y-2"
+        className="p-4 transition-all invert hover:-translate-y-2"
       />
     </button>
   );
