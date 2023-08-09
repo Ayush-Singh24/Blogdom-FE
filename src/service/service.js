@@ -1,19 +1,16 @@
 import { ApiRoutes } from "@/utils/constants";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
 
-async function makePostRequest(url, data, signal) {
-  const response = await fetch(
-    `${BACKEND_URL}${url}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-      credentials: "include",
+async function makePostRequest(url, data) {
+  const response = await fetch(`${BACKEND_URL}${url}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    { signal }
-  );
+    body: JSON.stringify(data),
+    credentials: "include",
+    signal: signal,
+  });
   const json = await response.json();
   return {
     status: response.status,
@@ -21,18 +18,15 @@ async function makePostRequest(url, data, signal) {
   };
 }
 
-async function makeGetRequest(url, signal) {
-  const response = await fetch(
-    BACKEND_URL + url,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
+async function makeGetRequest(url) {
+  const response = await fetch(BACKEND_URL + url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
     },
-    { signal }
-  );
+    credentials: "include",
+    signal: signal,
+  });
 
   const json = await response.json();
   return {
